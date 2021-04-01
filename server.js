@@ -1,13 +1,13 @@
 import bodyParser from "body-parser"
 import cors from "cors"
 import express from "express"
-import db from "./db.js"
 import fs from "fs";
 import resolvers from "./resolvers.js"
 import  {makeExecutableSchema} from "graphql-tools"
 import { graphiqlExpress, graphqlExpress } from "apollo-server-express";
 
 const typeDefs = fs.readFileSync('./schema.graphql', { encoding: 'utf-8' })
+// This is the SCHEMA !!
 const schema = makeExecutableSchema({ typeDefs, resolvers })
 
 const port = process.env.PORT || 9000;
